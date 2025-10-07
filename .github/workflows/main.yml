@@ -29,12 +29,10 @@ jobs:
           sed -e "s/\$USERNAME/$USERNAME/g" \
               -e "s/\$PASSWORD/$PASSWORD/g" \
               -e "s/\$BUCKET_NAME/$BUCKET_NAME/g" \
+              -e "s/\$CLOUDFLARE_ACCOUNT_ID/$CLOUDFLARE_ACCOUNT_ID/g" \
               wrangler.toml.template > wrangler.toml
-          
-          # 确保 account_id 被写入
-          echo "account_id = \"$CLOUDFLARE_ACCOUNT_ID\"" >> wrangler.toml
-          
           cat wrangler.toml
+
 
       # 4. 安装最新 Wrangler CLI（v4）
       - name: Install Wrangler CLI

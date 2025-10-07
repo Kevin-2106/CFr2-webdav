@@ -23,6 +23,8 @@ jobs:
               -e "s/\$BUCKET_NAME/$BUCKET_NAME/g" \
               wrangler.toml.template > wrangler.toml
           cat wrangler.toml
+      - name: test
+        run: echo ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
